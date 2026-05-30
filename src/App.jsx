@@ -89,16 +89,6 @@ async function seedDefaultDataIfEmpty() {
       setDoc(doc(db, "teams", safeId(name)), { name, members, updatedAt: new Date().toISOString() })
     ));
   }
-
-  const now = new Date();
-  await setDoc(doc(db, "settings", "main"), {
-    meetingType: "연합기도회",
-    meetingYear: now.getFullYear(),
-    meetingMonth: now.getMonth() + 1,
-    meetingTitle: buildMeetingLabel("연합기도회", now.getMonth() + 1),
-    meetingKey: buildMeetingKey("연합기도회", now.getFullYear(), now.getMonth() + 1),
-    updatedAt: new Date().toISOString(),
-  }, { merge: true });
 }
 
 function runSelfTests() {
