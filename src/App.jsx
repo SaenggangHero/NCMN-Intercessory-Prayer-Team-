@@ -146,9 +146,10 @@ function App() {
     }
 
     seedDefaultDataIfEmpty().catch((error) => {
-      console.error(error);
-      setNotice("Firebase 초기 데이터 저장 중 오류가 발생했습니다.");
-    });
+  console.error("오류:", error);
+  alert(error.message);
+  setNotice("Firebase 초기 데이터 저장 중 오류가 발생했습니다.");
+});
 
     const unsubTeams = onSnapshot(collection(db, "teams"), (snapshot) => {
       const next = {};
